@@ -1,12 +1,12 @@
 <?php
 if (isset($_POST['submit'])) {
-		if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['passwordCheck'])) {
+	if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['passwordCheck'])) {
 		$error = "Username or Password is empty";
-		}
-		else{
-			$username=$_POST['username'];
-			$password=$_POST['password'];
-			$passwordCheck =$_POST['passwordCheck'];
+	}
+	else{
+		$username=$_POST['username'];
+		$password=$_POST['password'];
+		$passwordCheck =$_POST['passwordCheck'];
 		//Check if passwords are the same	
 		if($password != $passwordCheck) $error = "Passwords are not the same";
 		
@@ -40,5 +40,9 @@ if (isset($_POST['submit'])) {
 			}
 		}
 	}
+<<<<<<< HEAD
 }
 ?>
+=======
+	?>
+>>>>>>> origin/master

@@ -1,10 +1,6 @@
 <?php
 
-	include('signin.php'); 
-
-	if(isset($_SESSION['login_user'])){
-		header("location: home.php");
-	}
+	//include('signin.php');
 
 ?>
 
