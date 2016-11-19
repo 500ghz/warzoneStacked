@@ -41,4 +41,9 @@ if (isset($_POST['submit'])) {
 		}
 	}
 }
+<<<<<<< HEAD
 ?>
+=======
+?>
+
+>>>>>>> origin/master
