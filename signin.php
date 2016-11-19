@@ -7,6 +7,7 @@ if (isset($_POST['submit'])) {
 		$username=$_POST['username'];
 		$password=$_POST['password'];
 		$passwordCheck =$_POST['passwordCheck'];
+		
 		//Check if passwords are the same	
 		if($password != $passwordCheck) $error = "Passwords are not the same";
 		else{
@@ -24,19 +25,20 @@ if (isset($_POST['submit'])) {
 			$query = mysql_query("select * from login where username='$username'", $connection);
 			$rows = mysql_num_rows($query);
 		
-			if($row > 0) $error = "Username is taken";
+			if($rows > 0) $error = "Username is taken";
 			else{
 				$q = mysql_query("insert into login (username, password) values ('$username', '$password')", $connection);
 				if($q){
 					echo '<script language="javascript">';
 					echo 'alert("Signup Successful")';
 					echo '</script>';
-					header("location: home.php");
+					header('Location: home.php');
 				}
 				else{
 					echo '<script language="javascript">';
 					echo 'alert("Signup Unsuccessful")';
 					echo '</script>';
+					header("Refresh:0");
 				}
 			}
 		}
