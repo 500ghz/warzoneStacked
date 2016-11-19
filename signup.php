@@ -1,6 +1,6 @@
 <?php
 
-	//include('signin.php');
+	include('signin.php');
 
 ?>
 

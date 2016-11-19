@@ -29,9 +29,9 @@ if (isset($_POST['submit'])) {
 			$q = mysql_query("insert into login (username, password) values ('$username', '$password')", $connection);
 			if($q){
 				echo '<script language="javascript">';
-				echo 'alert("Signin Successful")';
+				echo 'alert("Signup Successful")';
 				echo '</script>';
-				header("Location: index.php"); 
+				header("location: home.php");
 			}
 			else{
 				echo '<script language="javascript">';
@@ -40,9 +40,5 @@ if (isset($_POST['submit'])) {
 			}
 		}
 	}
-<<<<<<< HEAD
 }
 ?>
-=======
-	?>
->>>>>>> origin/master
