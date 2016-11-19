@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
 		$passwordCheck =$_POST['passwordCheck'];
 		//Check if passwords are the same	
 		if($password != $passwordCheck) $error = "Passwords are not the same";
-		
+		else{
 		
 		$connection = mysql_connect("localhost", "root", "root");
 		$db = mysql_select_db("warzone", $connection);
@@ -35,15 +35,12 @@ if (isset($_POST['submit'])) {
 			}
 			else{
 				echo '<script language="javascript">';
-				echo 'alert("Signin Unsuccessful")';
+				echo 'alert("Signup Unsuccessful")';
 				echo '</script>';
 			}
 		}
+		}
 	}
 }
-<<<<<<< HEAD
-?>
-=======
 ?>
 
->>>>>>> origin/master
