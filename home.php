@@ -2,6 +2,10 @@
 
 	include('session.php');
 	
+	if (isset($_POST['btnLogin'])) {
+    authenticateUser($_POST['txtUsername'], $_POST['txtPassword']);
+}
+	
 ?>
 
 
@@ -18,15 +22,21 @@
 		<div id = "Userlogged_in">
 		
 		
+		<?php 
+		echo $login_session;
+		?>
+		
 		</div>
 		
 		
 		
 		<br/>
-		<button id = "logout" <a href = "logout.php">Log Out</a></button>
-	
-		<b > </b>
+		<form action = "logout.php" method = "post">
+		<button>Log Out</button>
+		</form>
 		</div>
+		
+		
 	</body>
 	
 </html>
