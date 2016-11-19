@@ -30,6 +30,8 @@
 	// SQL query to fetch information of registerd users and finds user match.
 	$query = mysql_query("select * from login where password='$password' AND username='$username'", $connection);
 	$rows = mysql_num_rows($query);
+	
+	$query2 = mysql_query("insert into userState username='$username' AND loggedIn");
 
 		if ($rows == 1) {
 			// Initializing Session
