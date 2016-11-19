@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
 					echo '<script language="javascript">';
 					echo 'alert("Signup Successful")';
 					echo '</script>';
-					header('Location: home.php');
+					redirect(); 
 				}
 				else{
 					echo '<script language="javascript">';
@@ -44,5 +44,11 @@ if (isset($_POST['submit'])) {
 		}
 	}
 }
+
+ function redirect(){
+	 header('Location: home.php');
+ }
+
+
 ?>
 

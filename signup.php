@@ -13,7 +13,7 @@
 	
 	<body>
 		<div id = "main">
-		<h1>Welcome to the Warzone!!!</h1>
+		<h1>Signup to the Warzone!!!</h1>
 		
 		<div id = "login">
 		
