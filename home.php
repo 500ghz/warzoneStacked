@@ -8,16 +8,24 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Battleship Game Page</title>
+		<title>Warzone Home</title>
 	</head>
 	
 	<body>
 		<div id = "profile">
-		<b id = "welcome"> Welcome : <i>
-			<?php 
-			echo $login_session; 
-			?> </i></b>
-		<b id = "logout"> <a href = "logout.php">Log Out</a></b>
+		<b id = "welcome"> Welcome to the Warzone!!!! </b>
+		
+		<div id = "Userlogged_in">
+		
+		
+		</div>
+		
+		
+		
+		<br/>
+		<button id = "logout" <a href = "logout.php">Log Out</a></button>
+	
+		<b > </b>
 		</div>
 	</body>
 	
