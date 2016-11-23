@@ -12,36 +12,36 @@ Registered Users
 Login or Register
 Registration Page
   
-  ~unique usernames~
+1.~~unique usernames~~
   
-  ~confirmation password~
+2.~~confirmation password~~
   
-  ~error message on unsuccessful login/registration~
+3.~~error message on unsuccessful login/registration~~
   
-  single browser session signon
+4.single browser session signon
   
 Home
   
-  ~greeting message~
+1.~~greeting message~~
   
-  display other users(A)
+2.display other users(A)
   
-  invite to game button(A)
+3.invite to game button(A)
   
-  button disabling if invited(A)
+4.button disabling if invited(A)
   
-  change button to waiting (A)
+5.change button to waiting (A)
   
-  ~Logout button~
+6.~Logout button~
   
-  invite javascript
+7.invite javascript
   
-  acceptance or reject javascript
+8.acceptance or reject javascript
   
 Game
   
-  Log Out button
+1.Log Out button
   
-  all game stuff
+2.All game stuff
   
   * (A) denotes must use ajax
