@@ -7,9 +7,11 @@ Conrad
 Udeme
 
 TODO:
+
 Registered Users
-Login or Register
-Registration Page
+1. ~~Login or Register~~
+
+2. ~~Registration Page~~
   
 1.~~unique usernames~~
   
