@@ -33,17 +33,17 @@ if (isset($_POST['submit'])) {
 			$login_duration = 1; 
 			$current_time = time();
 			if(loggedIn()) {
-				$loggedintime = mysql_query("SELECT loggedin_time FROM login where username='$username'", $connection);
+				$loggedintime = mysql_query("SELECT loggedin_time FROM login WHERE username='$username'", $connection);
 				if(((time() - $loggedintime) > $login_duration)){ 
 					return true; 
-				} 
+				}
 			}
 			return false;
 		}
 
 		function loggedIn(){
 			// SQL query to fetch information of registerd users and finds user match.
-			$loggedin = mysql_query("SELECT * FROM login where password='$password' AND username='$username' AND loggedin_time = !NULL", $connection);
+			$loggedin = mysql_query("SELECT * FROM login WHERE password='$password' AND username='$username' AND loggedin_time = !NULL", $connection);
 			$rows = mysql_num_rows($loggedin);
 
 			if ($rows == 1) {
@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
 
 		}
 		// SQL query to fetch information of registerd users and finds user match.
-		$query = mysql_query("select * from login where password='$password' AND username='$username'", $connection);
+		$query = mysql_query("SELECT * FROM login WHERE password='$password' AND username='$username'", $connection);
 		$rows = mysql_num_rows($query);
 
 		//Gets current time as int
@@ -63,7 +63,7 @@ if (isset($_POST['submit'])) {
 		//Query that adds loggedinTime to users table
 		$query2 = mysql_query("UPDATE login SET loggedinTime = '$time' WHERE username ='$username'");
 
-		if ($rows == 1 && !isLoginSessionExpired()) {
+		if ($rows == 1) {
 			// Initializing Session
 			$_SESSION['login_user']=$username; 
 			

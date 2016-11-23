@@ -11,23 +11,23 @@ if (isset($_POST['submit'])) {
 		//Check if passwords are the same	
 		if($password != $passwordCheck) $error = "Passwords are not the same";
 		else{
-		
+
 			$connection = mysql_connect("localhost", "root", "root");
 			$db = mysql_select_db("warzone", $connection);
-		
-		// To protect MySQL injection for Security purpose
+
+			// To protect MySQL injection for Security purpose
 			$username = stripslashes($username);
 			$password = stripslashes($password);
-		
+
 			$username = mysql_real_escape_string($username);
 			$password = mysql_real_escape_string($password);
-		
+
 			$query = mysql_query("select * from login where username='$username'", $connection);
 			$rows = mysql_num_rows($query);
-		
+
 			if($rows > 0) $error = "Username is taken";
 			else{
-				$q = mysql_query("insert into login (username, password) values ('$username', '$password')", $connection);
+				$q = mysql_query("insert into login (username, password,loggedinTime) values ('$username', '$password', NULL)", $connection);
 				if($q){
 					echo '<script language="javascript">';
 					echo 'alert("Signup Successful")';
@@ -38,17 +38,16 @@ if (isset($_POST['submit'])) {
 					echo '<script language="javascript">';
 					echo 'alert("Signup Unsuccessful")';
 					echo '</script>';
-					header("Refresh:0");
+					refresh();
 				}
 			}
 		}
 	}
 }
-
- function redirect(){
-	 header('Location: home.php');
- }
-
-
+function redirect(){
+	header('Location: index.php');
+}
+function refresh(){
+	header("Refresh:0");
+}
 ?>
-
