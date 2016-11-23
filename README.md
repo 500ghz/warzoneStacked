@@ -1,11 +1,10 @@
 # warzoneStacked
 Warzone Game for CSC 543
 By:
-Omar Abid
-Nick Clark
-Conrad Carpenter
-Udeme Ekpo
-
+Omar
+Nick
+Conrad
+Udeme
 
 TODO:
 Registered Users
