@@ -22,23 +22,6 @@ $password = mysql_real_escape_string($password);
 // Selecting Database
 $db = mysql_select_db("warzone", $connection);
 
-//echo isLoginSessionExpired();
-//echo loggedIn();
-//console.log($loggedin);
-
-function debug_to_console( $data ) {
-
-    if ( is_array( $data ) )
-        $output = "<script>console.log( 'Debug Objects: " . implode( ',', $data) . "' );</script>";
-    else
-        $output = "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
-
-    echo $output;
-}
-
-//$loggedin = mysql_query("SELECT * FROM login where password='$password' AND username='$username' AND loggedin_time = !NULL", $connection);
-
-//debug_to_console($loggedin);
 
 if (isset($_POST['submit'])) {
 	if (empty($_POST['username']) || empty($_POST['password'])) {
@@ -80,7 +63,7 @@ if (isset($_POST['submit'])) {
 		//Query that adds loggedinTime to users table
 		$query2 = mysql_query("UPDATE login SET loggedinTime = '$time' WHERE username ='$username'");
 
-		if ($rows == 1 && isLoginSessionExpired()) {
+		if ($rows == 1 && !isLoginSessionExpired()) {
 			// Initializing Session
 			$_SESSION['login_user']=$username; 
 			
