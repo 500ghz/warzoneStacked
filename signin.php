@@ -29,7 +29,8 @@ if (isset($_POST['submit'])) {
 
 			if($rows > 0) $error = "Username is taken";
 			else{
-				$q = mysql_query("insert into login (username, password,sessionID) values ('$username', '$password', '$session')", $connection);
+				$q = mysql_query("insert into login (username, password, sessionID) values ('$username', '$password', '$session')", $connection);
+				$q1 = mysql_query("insert into lobby (username, createdAccount) values ('$username', '1')", $connection);
 				if($q){
 					echo '<script language="javascript">';
 					echo 'alert("Signup Successful")';
@@ -47,7 +48,7 @@ if (isset($_POST['submit'])) {
 	}
 }
 function redirect(){
-	header('Location: index.php');
+	header('Location: home.php');
 }
 function refresh(){
 	header("Refresh:0");
