@@ -35,6 +35,7 @@ if(isset($_SESSION['login_user'])){
 					
 					
 					<input id = "password" name = "password" placeholder = "password" type = "password"> <br/><br/> 
+					
 					<input name = "submit" type = "submit" value = " Login "class="button1">
 					
 					
@@ -42,11 +43,13 @@ if(isset($_SESSION['login_user'])){
 					
 					<br />
 
+					<p>
 					<span id="error">
 						<?php 
 						echo $error; 
 						?>
 					</span>
+					</p>
 				</form>
 
 			</div>
