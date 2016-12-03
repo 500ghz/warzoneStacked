@@ -5,8 +5,8 @@ include('session.php');
 if (isset($_POST['btnLogin'])) {
 	authenticateUser($_POST['txtUsername'], $_POST['txtPassword']);
 }
-$current_time = time();
-echo $current_time;
+$session = session_id();
+echo $session;
 
 ?>
 

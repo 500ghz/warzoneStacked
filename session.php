@@ -16,6 +16,11 @@
 	$row = mysql_fetch_assoc($ses_sql);
 	$login_session = $row['username'];
 
+	// SQL Query To Fetch Complete Information Of User
+	$ses_sql1 = mysql_query("select * from login where username='$user_check'", $connection);
+	$row1 = mysql_fetch_assoc($ses_sql1);
+	$login_session1 = $row1['sessionID'];
+
 	if(!isset($login_session)){
 		
 		// Closing Connection

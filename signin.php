@@ -7,6 +7,7 @@ if (isset($_POST['submit'])) {
 	else{
 		$username=$_POST['username'];
 		$password=$_POST['password'];
+		$session = session_id();
 		$passwordCheck =$_POST['passwordCheck'];
 		
 		//Check if passwords are the same	
@@ -28,7 +29,7 @@ if (isset($_POST['submit'])) {
 
 			if($rows > 0) $error = "Username is taken";
 			else{
-				$q = mysql_query("insert into login (username, password) values ('$username', '$password')", $connection);
+				$q = mysql_query("insert into login (username, password,sessionID) values ('$username', '$password', '$session')", $connection);
 				if($q){
 					echo '<script language="javascript">';
 					echo 'alert("Signup Successful")';
