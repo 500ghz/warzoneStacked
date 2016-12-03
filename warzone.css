@@ -1,27 +1,29 @@
+html{
+	background-color:#222222;
+	width:100%;
+}
+
 body{
 	font-size:6px;
 	font:white;
 }
-html{
-	background-color:#222222;
-}
-#error{
-	color:cyan;
-}
-.form{
-	position:relative;
-	width:40%;
-	padding-top:20px;
-	padding-left:5px;
-	left:30%;
-	top:100px;
-	min-width:400px;
-}
+
 h1{
 	font-size:22px;
 	color:white;
 	font-family:arial;
 }
+
+.form{
+	position:relative;
+	width:400px;
+	padding-top:20px;
+	padding-left:5px;
+	top:100px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
 
 input{
 	height:30px;
@@ -33,9 +35,14 @@ input{
 	font-family:Arial;
 	color:white;
 }
+#login{
+	padding-left:0px;
+	margin-left:auto;
+	margin-right:auto;
+}
 
 .button1{
-	width:100px;
+	width:200px;
 	color:white;
 	background-color:#222222;
 	border:1px gray solid;
@@ -48,26 +55,46 @@ input{
 	background-color:#444444;
 }
 
-
 a{
 	text-decoration:none;
 	font-family:Arial;
 	font-size:10px;
-	width:100px;
 	color:white;
-	background-color:#222222;
-	border:1px gray solid;
-	border-radius:3px; 
-	padding-top:8px;
-	padding-bottom:9px;
-	padding-left:30px;
-	padding-right:30px;
-}
-p{
-	font-size:12px;
-	font-family:arial;
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 .button2:hover{
 	background-color:#444444;
 }
+
+p{
+	font-size:12px;
+	font-family:arial;
+}
+
+#error{
+	color:cyan;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
