@@ -13,32 +13,44 @@ if(isset($_SESSION['login_user'])){
 <html>
 <head>
 	<title>Warzone Login</title>
+	<link rel="stylesheet" href="warzone.css">
+	
+	<script>
+	</script>
 	
 </head>
 
 <body>
 	<div id = "main">
+		<div class="form">
 		<h1>Welcome to the Warzone!!!</h1>
-		<h2><a href = "signup.php">Signup</a>
+		
 			
 			<div id = "login">
 				
 				<form action = "" method = "post">
 					
-					<label>Username :</label>
-					<input id = "name" name = "username" placeholder = "username" type = "text"> <br/><br/>
-					<label>Password :</label>
 					
-					<input id = "password" name = "password" placeholder = "**********" type = "password"> <br/> <br/>
-					<input name = "submit" type = "submit" value = " Login ">
+					<input id = "name" name = "username" placeholder = "username" type = "text"> <br/><br/>
+					
+					
+					<input id = "password" name = "password" placeholder = "password" type = "password"> <br/><br/> 
+					<input name = "submit" type = "submit" value = " Login "class="button1">
+					
+					
+					<a href = "signup.php" class="button2">Register</a>
+					
+					<br />
 
-					<span>
+					<span id="error">
 						<?php 
 						echo $error; 
 						?>
 					</span>
 				</form>
+
 			</div>
 		</div>
-	</body>
-	</html>
+	</div>
+</body>
+</html>
