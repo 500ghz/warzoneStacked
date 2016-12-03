@@ -1,4 +1,5 @@
 <?php
+$error='';
 if (isset($_POST['submit'])) {
 	if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['passwordCheck'])) {
 		$error = "Username or Password is empty";
@@ -12,7 +13,7 @@ if (isset($_POST['submit'])) {
 		if($password != $passwordCheck) $error = "Passwords are not the same";
 		else{
 
-			$connection = mysql_connect("localhost", "root", "root");
+			$connection = mysql_connect("localhost", "root", "");
 			$db = mysql_select_db("warzone", $connection);
 
 			// To protect MySQL injection for Security purpose
@@ -27,7 +28,7 @@ if (isset($_POST['submit'])) {
 
 			if($rows > 0) $error = "Username is taken";
 			else{
-				$q = mysql_query("insert into login (username, password,loggedinTime) values ('$username', '$password', NULL)", $connection);
+				$q = mysql_query("insert into login (username, password) values ('$username', '$password')", $connection);
 				if($q){
 					echo '<script language="javascript">';
 					echo 'alert("Signup Successful")';
