@@ -1,8 +1,67 @@
-CREATE DATABASE warzone;
-CREATE TABLE login(
-id int(10) NOT NULL AUTO_INCREMENT,
-username varchar(255) NOT NULL,
-password varchar(255) NOT NULL,
-sessionID varchar(50) NULL DEFAULT NULL,
-PRIMARY KEY (id)
-)
+-- phpMyAdmin SQL Dump
+-- version 4.4.10
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost:8889
+-- Generation Time: Dec 03, 2016 at 04:56 PM
+-- Server version: 5.5.42
+-- PHP Version: 5.6.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `warzone`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `id` int(10) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `sessionID` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`id`, `username`, `password`, `sessionID`) VALUES
+(1, 'omar', 'omar', '1479866716'),
+(2, 'nick', 'nick', '1479863460'),
+(3, 'conrad', 'conrad', NULL),
+(4, 'udeme', 'udeme', NULL),
+(5, 'matt', 'matt', NULL),
+(6, 'jack', 'jack', NULL),
+(7, 'john', 'john', NULL),
+(8, 'jill', 'jill', NULL),
+(9, 'qazwsx', 'qazwsx', '1479865614'),
+(10, 'qweasd', 'qweasd', NULL),
+(11, 'fdsa', 'fdsa', NULL),
+(12, 'qwaszx', 'qwaszx', '1479865505'),
+(13, 'qwerty', 'qwert', NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
