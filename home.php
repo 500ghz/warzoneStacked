@@ -14,25 +14,47 @@ $session = session_id();
 </head>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
-function something(){
+// function something(){
 
-	$.ajax({ url: 'getplayers.php',
-		data: {action: 'test'},
-		type: 'post',
-		success: function(output) {
-			console.log(output);
-			replaceDiv(output);
-		},
-		error: function(output) {
-			console.log(output);
-					//console.log("Details: " + desc + "\nError:" + err);
-				}
-			});
-}
+// 	$.ajax({ url: 'getplayers.php',
+// 		data: {action: 'test'},
+// 		type: 'post',
+// 		success: function(output) {
+// 			console.log(output);
+// 			replaceDiv(output);
+// 		},
+// 		error: function(output) {
+// 			console.log(output);
+// 					//console.log("Details: " + desc + "\nError:" + err);
+// 				}
+// 			});
+// }
 function replaceDiv(output){
-	document.getElementById("Omar").innerHTML = output;
+	document.getElementById("Players").innerHTML = output;
 
 }
+
+function auto_load(){
+        $.ajax({
+          url: "getplayers.php",
+          data: {action: 'test'},
+          type: 'post',
+          cache: false,
+          success: function(data){
+             $("#auto_load_div").html(data);
+          } 
+        });
+}
+ 
+$(document).ready(function(){
+ 
+auto_load(); //Call auto_load() function when DOM is Ready
+ 
+});
+ 
+//Refresh auto_load() function after 10000 milliseconds
+setInterval(auto_load,10000);
+
 </script>
 <body>
 	<div id = "profile">
@@ -46,10 +68,10 @@ function replaceDiv(output){
 		<form action = "logout.php" method = "post">
 			<button>Log Out</button>
 		</form>
-		<a href = "getplayers.php">this</a>
-		<button onclick="something()">Button</button>
+		<!--<a href = "getplayers.php">this</a>
+		<button onclick="something()">Button</button>-->
 		
 	</div>
-	<div id = "Omar">Content</div>
+	<div id = "auto_load_div"></div>
 </body>
 </html>

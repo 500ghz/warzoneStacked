@@ -20,15 +20,15 @@ Registered Users
   
 5. ~~error message on unsuccessful login/registration~~
   
-6. single browser session signon
+6. ~~single browser session signon~~
   
 Home
   
 1. ~~greeting message~~
   
-2. display other users(A)
+2. ~~display other users(A)~~
   
-3. invite to game button(A)
+3. ~~invite to game button(A)~~
   
 4. button disabling if invited(A)
   

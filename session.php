@@ -12,12 +12,12 @@
 	$user_check = $_SESSION['login_user'];
 
 	// SQL Query To Fetch Complete Information Of User
-	$ses_sql = mysql_query("select username from login where username='$user_check'", $connection);
+	$ses_sql = mysql_query("SELECT username FROM login WHERE username='$user_check'", $connection);
 	$row = mysql_fetch_assoc($ses_sql);
 	$login_session = $row['username'];
 
 	// SQL Query To Fetch Complete Information Of User
-	$ses_sql1 = mysql_query("select * from login where username='$user_check'", $connection);
+	$ses_sql1 = mysql_query("SELECT * FROM login WHERE username='$user_check'", $connection);
 	$row1 = mysql_fetch_assoc($ses_sql1);
 	$login_session1 = $row1['sessionID'];
 

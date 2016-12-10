@@ -1,6 +1,5 @@
 <?php
-
-
+include('session.php');
 
 if(isset($_POST['action']) && !empty($_POST['action'])) {
 	//echo "working";
@@ -20,11 +19,13 @@ function test(){
 	$query = "SELECT * FROM login"; 
 	$result = mysql_query($query);
 
-	echo "<table>"; 
+	echo "<table>";
+	echo "	<tr><th>Player Name</th>
+			<th>Invite Status</th></tr>";
 
 	while($row = mysql_fetch_array($result)){   
 	//Creates a loop to loop through results
-		echo "<tr><td>" . $row['username'] . "</td> <td><button>Invite this fucking guy</button></td> </tr>" ; 
+		echo "<tr><td>" . $row['username'] . "</td> <td><button>Invite player</button></td> </tr>" ; 
 	}
 
 echo "</table>"; //Close the table in HTML

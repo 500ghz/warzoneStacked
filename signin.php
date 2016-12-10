@@ -24,13 +24,13 @@ if (isset($_POST['submit'])) {
 			$username = mysql_real_escape_string($username);
 			$password = mysql_real_escape_string($password);
 
-			$query = mysql_query("select * from login where username='$username'", $connection);
+			$query = mysql_query("SELECT * FROM login WHERE username='$username'", $connection);
 			$rows = mysql_num_rows($query);
 
 			if($rows > 0) $error = "Username is taken";
 			else{
-				$q = mysql_query("insert into login (username, password, sessionID) values ('$username', '$password', '$session')", $connection);
-				$q1 = mysql_query("insert into lobby (username, createdAccount) values ('$username', '1')", $connection);
+				$q = mysql_query("INSERT INTO login (username, password, sessionID) VALUES ('$username', '$password', '$session')", $connection);
+				$q1 = mysql_query("INSERT INTO lobby (username, createdAccount) VALUES ('$username', '1')", $connection);
 				if($q){
 					echo '<script language="javascript">';
 					echo 'alert("Signup Successful")';
