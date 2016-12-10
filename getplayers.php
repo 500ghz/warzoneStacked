@@ -21,7 +21,7 @@ function test(){
 
 	echo "<table>";
 	echo "	<tr><th>Player Name</th>
-			<th>Invite Status</th></tr>";
+	<th>Invite Status</th></tr>";
 
 	while($row = mysql_fetch_array($result)){   
 	//Creates a loop to loop through results
@@ -29,6 +29,21 @@ function test(){
 	}
 
 echo "</table>"; //Close the table in HTML
+
+}
+
+function blah(){
+	$User = $_SESSION["login_user"];
+	$connection = mysql_connect('localhost', 'root', ''); 
+
+	mysql_select_db('warzone');
+
+	$query = "SELECT username FROM login WHERE username = '$User'";
+	$result = mysql_query($query);
+	$row = mysql_fetch_assoc($result);
+	$something = serialize($row);
+	
+	echo $something;
 
 }
 ?>

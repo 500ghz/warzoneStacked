@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
 			// Redirecting To Other Page
 			header("location: home.php");
 		} else if ($sessionID != $session){
-			$link = "This did not work";
+			$link = "You are currently signed in please logout";
 		echo "<script type='text/javascript'>alert('$link');</script>";
 
 		}
