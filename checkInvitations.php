@@ -1,6 +1,9 @@
 <?php
+$connection = mysql_connect('localhost', 'root', ''); 
+mysql_select_db('warzone');
+$sql = "SELECT * FROM login";
 $invitations = array();
-$res = $conn->query($sql);
+$res = $connection->query($sql);
 if($row = $res->fetch_assoc()){
 	$invitations["invitationFrom"]=$row["invitingPlayer"];
 	$invitations["invitationStatus"]='true';		

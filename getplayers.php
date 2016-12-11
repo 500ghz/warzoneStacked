@@ -22,10 +22,11 @@ function test(){
 	echo "<table>";
 	echo "	<tr><th>Player Name</th>
 	<th>Invite Status</th></tr>";
-
+	$i = 1;
 	while($row = mysql_fetch_array($result)){   
 	//Creates a loop to loop through results
-		echo "<tr><td>" . $row['username'] . "</td> <td><button>Invite player</button></td> </tr>" ; 
+		echo "<tr><td id='$i'>" . $row['username'] . "</td> <td><button id ='$i'>Invite player</button></td> </tr>";
+		$i++;
 	}
 
 echo "</table>"; //Close the table in HTML
