@@ -5,7 +5,6 @@ if (isset($_POST['btnLogin'])) {
 	authenticateUser($_POST['txtUsername'], $_POST['txtPassword']);
 }
 $session = session_id();
-
 ?>
 
 <html>
@@ -14,20 +13,22 @@ $session = session_id();
 </head>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
-	function auto_load(){
-		$.ajax({
-			url: "getplayers.php",
-			data: {action: 'test'},
-			type: 'post',
-			cache: false,
-			success: function(data){
-				$("#player_list").html(data);
-			} 
-		});
-	}
-	$(document).ready(function(){
-
-auto_load(); //Call auto_load() function when DOM is Ready
+//function that gets a list of active players
+function auto_load(){
+	$.ajax({
+		url: "getplayers.php",
+		data: {action: 'test'},
+		type: 'post',
+		cache: false,
+		success: function(data){
+			$("#player_list").html(data);
+		} 
+	});
+}
+//stuff to update everytime
+$(document).ready(function(){
+//Call auto_load() function when DOM is Ready
+auto_load(); 
 
 $('.container').on('click', 'button', function get_username(){
 	$.ajax({
@@ -54,8 +55,7 @@ function checkForInvitations(){
 		$.ajax({	
 			type: "Post",
 			url: "checkInvitations.php",
-			data:{ invitedPlayer: invitedPlayer }, // send username to check pending invitations for the player
-			
+			data:{ invitedPlayer: invitedPlayer },			
 			success: function(data){
 				// parse json string to javascript object
 				var invitations = JSON.parse(data);
