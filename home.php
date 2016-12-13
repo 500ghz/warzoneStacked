@@ -14,10 +14,10 @@ $session = session_id();
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
 //function that gets a list of active players
-function auto_load(){
+function load_data(){
 	$.ajax({
 		url: "getplayers.php",
-		data: {action: 'test'},
+		data: {action: 'get'},
 		type: 'post',
 		cache: false,
 		success: function(data){
@@ -27,24 +27,34 @@ function auto_load(){
 }
 //stuff to update everytime
 $(document).ready(function(){
-//Call auto_load() function when DOM is Ready
-auto_load(); 
+
+//Call load_data() function when DOM is Ready
+load_data();
+
+
 
 $('.container').on('click', 'button', function get_username(){
-	$.ajax({
-		url: "getplayers.php",
-		data: {action: 'blah'},
-		type: 'post',
-		cache: false,
-		success: function(data){
-			alert(data);
-		}
-	})
-});
+	var $e = $(this);
+	var b_id = $e.data("param").split('-')[1];
+	var username = $("td#"+b_id).text();
+        // gets the id  of button
+        $.ajax({
+        	type: "POST",
+        	url: "getplayers.php",
+        	data: {action: 'username'},
+        	success: function(data) {
+                // Hide the current clicked Button
+                $e.prop("disabled",true);
+                //alert(data);
+                console.log(data);
+            }
+        });
+    });
+
 });
 
-//Refresh auto_load() function after 10000 milliseconds
-setInterval(auto_load,10000);
+//Refresh load_data() function after 10000 milliseconds
+setInterval(load_data,10000);
 
 function checkForInvitations(){
 
@@ -88,7 +98,7 @@ function checkForInvitations(){
 					});
 				}
 			}
-		});	
+		});
 	}
 </script>
 <body>
