@@ -1,6 +1,6 @@
 
 <html>
-<head></head>
+<head><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script></head>
 <body>
 
 <center><h3>Welcome to Warzone</h3></center>
@@ -74,6 +74,7 @@ var sub_count = 4;
 
 //holds all the used co-ordinates
 GameState.occupied = [];
+
 
 
 function Battleship(id, x, y){
@@ -274,6 +275,9 @@ function on_canvas2_click(ev){
   		 GameState.shot.push( new Shot(GameState.shot.length, x, y));
 
 	}
+	
+	//play();
+	
 
 	drawGameObjects();
 	
@@ -404,7 +408,47 @@ function drawGameObjects(){
 
 
 
-
+function play(){
+	var myName = "<?php echo $_SESSION['login_user'];?>";
+	
+	var action = "mysqlaction";
+	
+	
+	//check if player players move has and affected my ship_choice
+	$.ajax({
+        url:"GameAction.php", //the page containing php script
+        type: "POST", //request type
+		data: {action: 'checkPlayerMove', player: myName},
+        success:function(result){
+         alert(result);
+       }
+     });
+	
+	
+	//check turn select from database on player turn
+	 $.ajax({
+        url:"GameAction.php", //the page containing php script
+        type: "POST", //request type
+		data: {action: 'checkTurn', player: myName},
+        success:function(result){
+         alert(result);
+       }
+     });
+	 
+	 
+	 //if it is my turn play, pass my move to database
+	  $.ajax({
+        url:"GameAction.php", //the page containing php script
+        type: "POST", //request type
+		data: {action: 'playMymove', player: myName},
+        success:function(result){
+         alert(result);
+       }
+     });
+	 
+	 
+	
+}
 
 
 
