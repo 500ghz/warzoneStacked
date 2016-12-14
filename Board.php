@@ -406,7 +406,7 @@ function drawGameObjects(){
 	}
 }
 
-
+/*
 
 function play(){
 	var myName = "<?php echo $_SESSION['login_user'];?>";
@@ -448,7 +448,7 @@ function play(){
 	 
 	 
 	
-}
+}*/
 
 
 
