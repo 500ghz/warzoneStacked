@@ -21,7 +21,7 @@ if(isset($_SESSION['login_user'])){
 </head>
 
 <body>
-	
+	<img src="battleship.jpg"></img>
 		<div class="form">
 		<h1>Welcome to the Warzone!!!</h1>
 		

@@ -98,6 +98,7 @@ function checkForInvitations(){
 	}
 </script>
 <body>
+
 	<center>
 		<div id = "profile">
 			<h1><b id = "welcome"> Welcome to the Warzone!!!! </b></h1>

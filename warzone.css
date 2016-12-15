@@ -18,6 +18,7 @@ h1{
 	font-size:22px;
 	color:white;
 	font-family:arial;
+	background-color:#222222;
 }
 
 .form{
@@ -56,6 +57,7 @@ input{
 	font-family:Arial;
 	font-size:10px;
 }
+
 
 .userID:hover{
 	background-color:#444444;
