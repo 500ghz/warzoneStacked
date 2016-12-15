@@ -26,25 +26,18 @@ function get(){
 		echo "<tr><td class 'username' id='$i'>" . $row['username'] . "</td> <td><button class='userID' id ='$i' data-param='button-$i'>Invite player</button></td> </tr>";
 		$i++;
 	}
-
 echo "</table>"; //Close the table in HTML
-
 }
 
 function username($username){
 	$User = $_SESSION["login_user"];
 	$connection = mysql_connect('localhost', 'root', ''); 
 	mysql_select_db('warzone');
-	//code to get username incorrectly
-	//$Username  = $_POST['username'];
-	//hard coded query UPDATE lobby SET iUsername = 'udeme' Where username = 'omar';
-	$query = "UPDATE lobby SET iUsername = '$username', invitedPlayer = '1'  WHERE username = '$User'";
-	$query2 = "UPDATE lobby SET pendingInvite = '1'  WHERE username = '$username'";
+	$query = "UPDATE lobby SET iUsername = '$User', pendingInvite = '1'  WHERE username = '$username'";
+	$query2 = "UPDATE lobby SET invitedPlayer = '1'  WHERE username = '$User'";
 	$result = mysql_query($query);
 	$result2 = mysql_query($query2);
-	//$row = mysql_fetch_assoc($result);
-	//$something = serialize($row);
-	
+
 	echo $result;
 
 }
