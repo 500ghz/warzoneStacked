@@ -5,7 +5,7 @@ if(isset($_POST['action']) && !empty($_POST['action'])) {
 	$action = $_POST['action'];
 	switch($action) {
 		case 'get' : get();break;
-		case 'username' : username();break;
+		case 'username' : username($username = $_POST['username']);break;
 	}
 }
 
@@ -31,18 +31,19 @@ echo "</table>"; //Close the table in HTML
 
 }
 
-function username(){
-	// //$User = $_SESSION["login_user"];
-	// $connection = mysql_connect('localhost', 'root', ''); 
-	// mysql_select_db('warzone');
-	// //code to get username incorrectly
-	// $Username  = $_POST['username'];
-	// $query = "INSERT INTO lobby (iUsername) VALUES ('$Username')";
-	// $result = mysql_query($query);
-	// //$row = mysql_fetch_assoc($result);
-	// //$something = serialize($row);
+function username($username){
+	$User = $_SESSION["login_user"];
+	$connection = mysql_connect('localhost', 'root', ''); 
+	mysql_select_db('warzone');
+	//code to get username incorrectly
+	//$Username  = $_POST['username'];
+	//hard coded query UPDATE lobby SET iUsername = 'udeme' Where username = 'omar';
+	$query = "UPDATE lobby SET iUsername = '$username' WHERE username = '$User' ";
+	$result = mysql_query($query);
+	//$row = mysql_fetch_assoc($result);
+	//$something = serialize($row);
 	
-	// echo $result;
+	echo $result;
 
 }
 ?>

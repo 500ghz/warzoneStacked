@@ -1,7 +1,7 @@
 <?php
 $connection = mysql_connect('localhost', 'root', ''); 
 mysql_select_db('warzone');
-$sql = "SELECT * FROM login";
+$sql = "SELECT * FROM lobby";
 $invitations = array();
 $res = $connection->query($sql);
 if($row = $res->fetch_assoc()){

@@ -32,8 +32,6 @@ $(document).ready(function(){
 //Call load_data() function when DOM is Ready
 load_data();
 
-
-
 $('.container').on('click', 'button', function get_username(){
 	var $e = $(this);
 	var b_id = $e.data("param").split('-')[1];
@@ -42,16 +40,15 @@ $('.container').on('click', 'button', function get_username(){
         $.ajax({
         	type: "POST",
         	url: "getplayers.php",
-        	data: {action: 'username'},
+        	data: {action: 'username', username: username},
         	success: function(data) {
                 // Hide the current clicked Button
-                $e.prop("disabled",true);
+                //$e.prop("disabled",true);
                 //alert(data);
                 console.log(data);
             }
         });
     });
-
 });
 
 //Refresh load_data() function after 10000 milliseconds
@@ -90,8 +87,6 @@ function checkForInvitations(){
 							success: function(data){
 								if(confirm_yes){
 
-								// forward user to the game 
-								// TODO
 							}else{
 								pollForGameInvitations();		
 							}
