@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 03, 2016 at 11:21 PM
+-- Host: localhost
+-- Generation Time: Dec 15, 2016 at 07:29 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `lobby` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
+  `iUsername` varchar(255) NOT NULL,
   `createdAccount` tinyint(1) NOT NULL,
   `loggedIn` tinyint(1) NOT NULL,
   `invitedPlayer` tinyint(1) NOT NULL,
