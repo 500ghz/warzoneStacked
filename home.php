@@ -10,6 +10,7 @@ $session = session_id();
 <html>
 <head>
 	<title>Warzone Home</title>
+	<link rel="stylesheet" href="warzone.css">
 </head>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
@@ -104,12 +105,12 @@ function checkForInvitations(){
 <body>
 	<center>
 		<div id = "profile">
-			<b id = "welcome"> Welcome to the Warzone!!!! </b>
+			<h1><b id = "welcome"> Welcome to the Warzone!!!! </b></h1>
 			<div id = "Userlogged_in">
 			</div>
 			<br/>
 			<form action = "logout.php" method = "post">
-				<button>Log Out</button>
+				<button class="button1">Log Out</button>
 			</form>
 		</div>
 		<section class="container">

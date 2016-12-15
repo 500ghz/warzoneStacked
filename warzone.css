@@ -3,6 +3,12 @@ html{
 	width:100%;
 }
 
+img{
+	position: fixed;
+	margin-left:auto;
+	margin-right:auto;
+}
+
 body{
 	font-size:6px;
 	font:white;
@@ -42,6 +48,20 @@ input{
 }
 
 .button1{
+	width:200px;
+	color:white;
+	background-color:#222222;
+	border:1px gray solid;
+	border-radius:3px; 
+	font-family:Arial;
+	font-size:10px;
+}
+
+.userID:hover{
+	background-color:#444444;
+}
+
+.userID{
 	width:200px;
 	color:white;
 	background-color:#222222;
