@@ -38,8 +38,10 @@ function username($username){
 	//code to get username incorrectly
 	//$Username  = $_POST['username'];
 	//hard coded query UPDATE lobby SET iUsername = 'udeme' Where username = 'omar';
-	$query = "UPDATE lobby SET iUsername = '$username' WHERE username = '$User' ";
+	$query = "UPDATE lobby SET iUsername = '$username', invitedPlayer = '1'  WHERE username = '$User'";
+	$query2 = "UPDATE lobby SET pendingInvite = '1'  WHERE username = '$username'";
 	$result = mysql_query($query);
+	$result2 = mysql_query($query2);
 	//$row = mysql_fetch_assoc($result);
 	//$something = serialize($row);
 	

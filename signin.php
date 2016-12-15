@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
 			if($rows > 0) $error = "Username is taken";
 			else{
 				$q = mysql_query("INSERT INTO login (username, password, sessionID) VALUES ('$username', '$password', '$session')", $connection);
-				$q1 = mysql_query("INSERT INTO lobby (username, createdAccount) VALUES ('$username', '1')", $connection);
+				$q1 = mysql_query("INSERT INTO lobby (username, loggedIn) VALUES ('$username', '1')", $connection);
 				if($q){
 					echo '<script language="javascript">';
 					echo 'alert("Signup Successful")';
