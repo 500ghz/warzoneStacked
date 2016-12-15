@@ -11,3 +11,5 @@ player1MoveY INT NOT NULL,
 player2MoveX INT NOT NULL,
 player2MoveY INT NOT NULL
 );
+
+insert into GameTable(player1Name)

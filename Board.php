@@ -1,10 +1,10 @@
 
 <html>
-<head><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script></head>
+<head></head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <body>
-
+<button style = "float:right;" onclick = "logout()">logout</button>
 <center><h3>Welcome to Warzone</h3></center>
-
 
 
 <div id = "side-A">
@@ -467,7 +467,18 @@ function clearCanvas(){
 	}
 
 	
-	
+	function logout(){
+		$.ajax({
+			type: "Post",
+			url: "logout.php",
+			data:{ }, 
+			success: function(data){
+				alert('You have been logged out');	
+				window.location.href="index.php";				
+			}
+		});
+
+	}
 
 
 
