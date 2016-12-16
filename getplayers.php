@@ -6,6 +6,8 @@ if(isset($_POST['action']) && !empty($_POST['action'])) {
 	switch($action) {
 		case 'get' : get();break;
 		case 'username' : username($username = $_POST['username']);break;
+		case 'invites' : invites();break;
+		case 'response' : response($iUsername = $_POST['data']);break;
 	}
 }
 
@@ -14,7 +16,7 @@ function get(){
 
 	mysql_select_db('warzone');
 	$User = $_SESSION["login_user"];
-	$query = "SELECT * FROM login WHERE username != '$User'"; 
+	$query = "SELECT * FROM lobby WHERE username != '$User'"; 
 	$result = mysql_query($query);
 
 	echo "<table>";
@@ -33,12 +35,32 @@ function username($username){
 	$User = $_SESSION["login_user"];
 	$connection = mysql_connect('localhost', 'root', ''); 
 	mysql_select_db('warzone');
-	$query = "UPDATE lobby SET iUsername = '$User', pendingInvite = '1'  WHERE username = '$username'";
+	$query = "UPDATE lobby SET iUsername = '$User'  WHERE username = '$username'";
 	$query2 = "UPDATE lobby SET invitedPlayer = '1'  WHERE username = '$User'";
 	$result = mysql_query($query);
 	$result2 = mysql_query($query2);
 
 	echo $result;
 
+}
+function invites(){
+	$connection = mysql_connect('localhost', 'root', ''); 
+	mysql_select_db('warzone');
+	$User = $_SESSION["login_user"];
+	$query = "SELECT iUsername FROM lobby WHERE username = '$User'"; 
+	$result = mysql_query($query);
+	$row = mysql_fetch_row($result);
+	echo $row[0];
+	//$res->fetch_assoc()
+}
+function response($iUsername){
+	$connection = mysql_connect('localhost', 'root', ''); 
+	mysql_select_db('warzone');
+	$User = $_SESSION["login_user"];
+	$query = "UPDATE lobby SET pendingInvite = '1' WHERE username = '$iUsername'"; 
+	$result = mysql_query($query);
+	$row = mysql_fetch_row($result);
+	echo $row[0];
+	//$res->fetch_assoc()
 }
 ?>

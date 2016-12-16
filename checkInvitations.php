@@ -1,7 +1,9 @@
 <?php
+include('session.php');
+$User = $_SESSION["login_user"];
 $connection = mysql_connect('localhost', 'root', ''); 
 mysql_select_db('warzone');
-$sql = "SELECT * FROM lobby";
+$sql = "SELECT iUsername FROM lobby WHERE usernamer = '$User'";
 $invitations = array();
 $res = $connection->query($sql);
 if($row = $res->fetch_assoc()){

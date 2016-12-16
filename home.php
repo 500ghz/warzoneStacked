@@ -26,12 +26,34 @@ function load_data(){
 		} 
 	});
 }
+
+function load_invites(){
+	$.ajax({
+		url: "getplayers.php",
+		data: {action: 'invites'},
+		type: 'post',
+		cache: false,
+		success: function(data){
+			if(data == ""){
+				alert(data);
+			}
+			else{
+				//location.reload();
+				confirm_yes = confirm(data+" invited you to a game. Accept ?");
+				if(confirm_yes){
+					window.location.href="Board.php";
+				}
+			}
+		}
+	});
+}
+
 //stuff to update everytime
 $(document).ready(function(){
 
 //Call load_data() function when DOM is Ready
 load_data();
-
+load_invites();
 $('.container').on('click', 'button', function get_username(){
 	var $e = $(this);
 	var b_id = $e.data("param").split('-')[1];
@@ -52,6 +74,7 @@ $('.container').on('click', 'button', function get_username(){
 });
 
 //Refresh load_data() function after 10000 milliseconds
+
 setInterval(load_data,10000);
 
 function checkForInvitations(){
@@ -60,10 +83,10 @@ function checkForInvitations(){
 		var invitedPlayer = '<?php echo $_SESSION["login_user"]; ?>'
 
 		// send an ajax request
-		$.ajax({	
+		$.ajax({
 			type: "Post",
 			url: "checkInvitations.php",
-			data:{ invitedPlayer: invitedPlayer },			
+			data:{ invitedPlayer: invitedPlayer },
 			success: function(data){
 				// parse json string to javascript object
 				var invitations = JSON.parse(data);
@@ -86,12 +109,12 @@ function checkForInvitations(){
 							decision: confirm_yes }, 
 							success: function(data){
 								if(confirm_yes){
-
-							}else{
-								pollForGameInvitations();		
+									//go to game
+								}else{
+									pollForGameInvitations();
+								}
 							}
-						}
-					});
+						});
 				}
 			}
 		});
