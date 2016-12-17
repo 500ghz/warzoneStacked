@@ -14,6 +14,7 @@ $session = session_id();
 </head>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script>
+
 //function that gets a list of active players
 function load_data(){
 	$.ajax({
@@ -34,15 +35,14 @@ function load_invites(){
 		type: 'post',
 		cache: false,
 		success: function(data){
+			username = data;
 			if(data == ''){
-				//console.log(data);
 			}
 			else{
-				//console.log(data);
 				confirm_yes = confirm(data+" invited you to a game. Accept ?");
 				if(confirm_yes == true){
 					window.location.href="Board.php";
-					accept_invite(data);
+					accept_invite(username);
 				}
 				else{
 					deny_invite();
@@ -62,6 +62,7 @@ function accept_invite(username){
 	});
 }
 
+//removes username 
 function deny_invite(){
 	$.ajax({
 		url: "getplayers.php",
@@ -72,82 +73,38 @@ function deny_invite(){
 	});
 }
 
-//refreshes window to load the confirmation window for invited user
+//refreshes page every 10 seconds
 function reload(){
 	load_data();
-	//confirm();
 	load_invites();
 	window.location.reload(true);
 }
+
 //stuff to update everytime
 $(document).ready(function(){
 
-//Call load_data() function when DOM is Ready
+//Calls database tosee if new users logged in
 load_data();
+
+//Button click code that generates first invite
 $('.container').on('click', 'button', function get_username(){
 	var $e = $(this);
 	var b_id = $e.data("param").split('-')[1];
 	var username = $("td#"+b_id).text();
-        // gets the id  of button
-        $.ajax({
-        	type: "POST",
-        	url: "getplayers.php",
-        	data: {action: 'username', username: username},
-        	success: function(data) {
-                // Hide the current clicked Button
-                //$e.prop("disabled",true);
-                //alert(data);
-                console.log(data);
-            }
-        });
-    });
+	$.ajax({
+		type: "POST",
+		url: "getplayers.php",
+		data: {action: 'username', username: username},
+		success: function(data) {
+			console.log(data);
+		}
+	});
+});
 });
 
 //Refresh load_data() function after 10000 milliseconds
 setInterval(reload,10000);
 
-function checkForInvitations(){
-
-		// retrieve username from php session
-		var invitedPlayer = '<?php echo $_SESSION["login_user"]; ?>'
-
-		// send an ajax request
-		$.ajax({
-			type: "Post",
-			url: "checkInvitations.php",
-			data:{ invitedPlayer: invitedPlayer },
-			success: function(data){
-				// parse json string to javascript object
-				var invitations = JSON.parse(data);
-				
-				// check the invitations to/from
-				invitingPlayer = invitations.invitationFrom;
-				invitationStatus = invitations.invitationStatus;
-				
-				if(invitationStatus!='false'){
-					clearInterval(checkInvitationIntervalId);
-					
-					// javascript confirmation window
-					confirm_yes = confirm(invitingPlayer+" invited you to a game. Accept ?");
-
-					$.ajax({
-						type: "Post",
-						url: "respondToInvitation.php",
-						data:{ invitedPlayer: invitedPlayer,
-							invitingPlayer: invitingPlayer,
-							decision: confirm_yes }, 
-							success: function(data){
-								if(confirm_yes){
-									//go to game
-								}else{
-									pollForGameInvitations();
-								}
-							}
-						});
-				}
-			}
-		});
-	}
 </script>
 <body>
 
