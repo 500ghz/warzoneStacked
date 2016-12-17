@@ -34,26 +34,56 @@ function load_invites(){
 		type: 'post',
 		cache: false,
 		success: function(data){
-			if(data == ""){
-				alert(data);
+			if(data == ''){
+				//console.log(data);
 			}
 			else{
-				//location.reload();
+				//console.log(data);
 				confirm_yes = confirm(data+" invited you to a game. Accept ?");
-				if(confirm_yes){
+				if(confirm_yes == true){
 					window.location.href="Board.php";
+					accept_invite(data);
+				}
+				else{
+					deny_invite();
 				}
 			}
 		}
 	});
 }
 
+function accept_invite(username){
+	$.ajax({
+		url: "getplayers.php",
+		data: {action: 'response', username: username},
+		type: 'post',
+		success: function(){
+		}
+	});
+}
+
+function deny_invite(){
+	$.ajax({
+		url: "getplayers.php",
+		data: {action: 'cancel'},
+		type: 'post',
+		success: function(){
+		}
+	});
+}
+
+//refreshes window to load the confirmation window for invited user
+function reload(){
+	load_data();
+	//confirm();
+	load_invites();
+	window.location.reload(true);
+}
 //stuff to update everytime
 $(document).ready(function(){
 
 //Call load_data() function when DOM is Ready
 load_data();
-load_invites();
 $('.container').on('click', 'button', function get_username(){
 	var $e = $(this);
 	var b_id = $e.data("param").split('-')[1];
@@ -74,8 +104,7 @@ $('.container').on('click', 'button', function get_username(){
 });
 
 //Refresh load_data() function after 10000 milliseconds
-
-setInterval(load_data,10000);
+setInterval(reload,10000);
 
 function checkForInvitations(){
 
