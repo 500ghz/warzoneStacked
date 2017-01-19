@@ -44,7 +44,8 @@ INSERT INTO `login` (`id`, `username`, `password`, `sessionID`) VALUES
 (10, 'qweasd', 'qweasd', NULL),
 (11, 'fdsa', 'fdsa', NULL),
 (12, 'qwaszx', 'qwaszx', '1479865505'),
-(13, 'qwerty', 'qwert', NULL);
+(13, 'qwerty', 'qwert', NULL),
+(14, 'qwerty', 'qwert', NULL);
 
 --
 -- Indexes for dumped tables
